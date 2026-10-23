@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Discovery App - EG04</title>
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="logo">
+            <i class="fa-solid fa-film"></i>
+            <span>Movie Discovery</span>
+        </div>
+        
+        <!-- Nút Bài tập 37, 38 (mỗi bài 2 ảnh) & Bài 39 -->
+        <nav class="assignment-links">
+            <button type="button" class="nav-btn" onclick="openAssignmentModal('Bài 37', ['images/images2.png', 'images/images1.png'])">
+                <i class="fa-solid fa-images"></i> Bài 37 (2 ảnh)
+            </button>
+            <button type="button" class="nav-btn" onclick="openAssignmentModal('Bài 38', ['images/images3.png', 'images/images4.png'])">
+                <i class="fa-solid fa-images"></i> Bài 38 (2 ảnh)
+            </button>
+            <a href="https://tandat0332-lgtm.github.io/baitap39/bt39.html" target="_blank" class="nav-btn">
+                <i class="fa-solid fa-link"></i> Bài 39
+            </a>
+        </nav>
+
+        <!-- Toggle Light / Dark Mode -->
+        <div class="theme-switch-wrapper">
+            <span id="theme-label"><i class="fa-solid fa-sun"></i></span>
+            <label class="theme-switch" for="checkbox-theme">
+                <input type="checkbox" id="checkbox-theme" />
+                <div class="slider round"></div>
+            </label>
+            <span><i class="fa-solid fa-moon"></i></span>
+        </div>
+    </header>
+
+    <!-- Main Container (CSS Grid 2 cột: Sidebar + Main Content) -->
+    <div class="main-layout">
+        <!-- Sidebar Bộ lọc -->
+        <aside class="sidebar">
+            <div class="filter-group">
+                <h3><i class="fa-solid fa-magnifying-glass"></i> Tìm kiếm phim</h3>
+                <input type="text" id="search-input" placeholder="Nhập tên phim..." autocomplete="off">
+            </div>
+
+            <div class="filter-group">
+                <h3><i class="fa-solid fa-filter"></i> Thể loại</h3>
+                <div id="genre-checkbox-list" class="checkbox-container">
+                    <!-- Javascript sẽ tự động sinh checkbox thể loại ở đây -->
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content khu vực danh sách phim -->
+        <main class="content-area">
+            <div class="results-info">
+                <span>Hiển thị: <strong id="movie-count">0</strong> bộ phim</span>
+            </div>
+            
+            <div id="movie-grid" class="movie-grid">
+                <!-- Javascript sẽ tự động sinh các Card phim ở đây -->
+            </div>
+
+            <div id="empty-state" class="empty-state hidden">
+                <i class="fa-solid fa-film-slash"></i>
+                <p>Không tìm thấy bộ phim nào phù hợp với bộ lọc!</p>
+            </div>
+        </main>
+    </div>
+
+    <!-- Modal Chi tiết Phim -->
+    <div id="movie-modal" class="modal hidden">
+        <div class="modal-overlay" id="modal-overlay"></div>
+        <div class="modal-content">
+            <button class="modal-close-btn" id="modal-close">&times;</button>
+            <div class="modal-body" id="modal-body">
+                <!-- Nội dung chi tiết phim sẽ load bằng Javascript -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Hiển thị 2 ảnh kết quả Bài tập 37 & 38 -->
+    <div id="assignment-modal" class="modal hidden">
+        <div class="modal-overlay" onclick="closeAssignmentModal()"></div>
+        <div class="modal-content" style="max-width: 850px; width: 95%;">
+            <button class="modal-close-btn" onclick="closeAssignmentModal()">&times;</button>
+            <h2 id="assign-modal-title" style="margin-bottom: 15px;">Kết quả thực hiện bài tập</h2>
+            
+            <!-- Lưới hiển thị 2 ảnh -->
+            <div id="assign-modal-images" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 15px;">
+                <!-- 2 Ảnh nạp tự động bằng JS -->
+            </div>
+        </div>
+    </div>
+
+    <script src="js/app.js"></script>
+</body>
+</html>
